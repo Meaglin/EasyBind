@@ -1,0 +1,14 @@
+name: EasyBind
+main: com.easybind.EasyBind
+version: 1.0
+author: Meaglin
+website: https://github.com/Meaglin/EasyBind
+description: The plugin to easily make serverside binds.
+database: true
+commands:
+    bind:
+        description: binds a <command> to the weared tool.
+        usage: /<command> <command>
+    unbind:
+        description: unbinds commands from the weared tool.
+        usage: /<command>
