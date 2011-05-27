@@ -61,7 +61,7 @@ public class EasyBindPlayerListener extends PlayerListener {
 
         if (bind != null) {
             long delay = list.getLastUse() + EasyBindConfig.USE_DELAY - System.currentTimeMillis();
-            if (delay > 0) {
+            if (delay > 0 && !plugin.getPermissions().canUse(player, "easybind.delayoverride")) {
                 if (delay > 1000) {
                     int seconds = (int) Math.ceil(delay / 1000);
                     player.sendMessage(ChatColor.RED + "Please wait " + seconds + " second" + (seconds != 1 ? "s" : "") + " before using a bind again.");

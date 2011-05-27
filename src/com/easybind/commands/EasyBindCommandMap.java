@@ -20,6 +20,7 @@ public class EasyBindCommandMap {
         commands.clear();
         registerCommand(new BindCommand(plugin));
         registerCommand(new UnBindCommand(plugin));
+        registerCommand(new ListBindsCommand(plugin));
     }
 
     public void registerCommand(EasyBindCommand cmd) {

@@ -40,6 +40,8 @@ public class EasyBind extends JavaPlugin {
 
     private void registerEvents() {
         registerEvent(Event.Type.PLAYER_INTERACT, playerListener, Priority.High);
+        registerEvent(Event.Type.PLAYER_LOGIN, playerListener, Priority.High);
+        registerEvent(Event.Type.PLAYER_QUIT, playerListener, Priority.High);
     }
 
     /**
@@ -102,10 +104,10 @@ public class EasyBind extends JavaPlugin {
                 getPluginLoader().enablePlugin(plugin);
             }
             permissionsManager = new NijiPermissions((com.nijikokun.bukkit.Permissions.Permissions) plugin);
-            log.info("[Zones]Using Nijikokun Permissions for permissions managing.");
+            log.info("[EasyBind]Using Nijikokun Permissions for permissions managing.");
         } else {
             permissionsManager = new BukkitPermissions();
-            log.info("[Zones]Using built in isOp() for permissions managing.");
+            log.info("[EasyBind]Using built in isOp() for permissions managing.");
         }
     }
 

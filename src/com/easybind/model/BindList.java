@@ -43,6 +43,10 @@ public class BindList {
     public Bind getBind(Key key, ItemStack item) {
         return binds.get(getIndex(key, item));
     }
+    
+    public Bind[] getBinds() {
+        return binds.getValues(new Bind[binds.size()]);
+    }
 
     private int getIndex(Key key, ItemStack item) {
         /*

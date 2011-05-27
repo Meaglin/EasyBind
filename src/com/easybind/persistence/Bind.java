@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import com.avaje.ebean.validation.NotEmpty;
@@ -104,6 +105,18 @@ public class Bind {
 
     public void setItemdata(int itemdata) {
         this.itemdata = itemdata;
+    }
+    
+    public String toString() {
+        Material mat = Material.getMaterial(getItemid());
+        String rt = "[" + getKey().name().toLowerCase().replace("_", " ") + "]";
+        rt += mat.name();
+        rt += "(";
+        rt += getItemdata();
+        rt += ")";
+        rt += ":";
+        rt += getCommand();
+        return rt;
     }
 
 }

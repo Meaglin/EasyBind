@@ -7,8 +7,14 @@ description: The plugin to easily make serverside binds.
 database: true
 commands:
     bind:
-        description: binds a <command> to the weared tool.
-        usage: /<command> <command>
+    	aliases: [ b , "b+" ]
+        description: binds a [command] to the equiped tool.
+        usage: /<command> [command]
     unbind:
-        description: unbinds commands from the weared tool.
+        aliases: [ removebind, delbind , "b-" ]
+        description: unbinds command from the equiped tool.
         usage: /<command>
+    listbinds:
+        aliases: [ binds ]
+        description: list the current set binds.
+        usage: /<command> [page|current]
