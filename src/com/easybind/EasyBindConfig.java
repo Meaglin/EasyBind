@@ -18,7 +18,7 @@ public class EasyBindConfig {
         try {
             Properties ebp = new Properties(f);
             ALLOW_MULTILINE_COMMANDS = ebp.getBool("AllowMultiLineCommands", true);
-            LINE_SEPERATOR = ebp.getProperty("LineSeperator", "\n");
+            LINE_SEPERATOR = ebp.getProperty("LineSeperator", ";;");
             USE_DELAY = ebp.getInt("UseDelay", 1000);
         } catch (Exception e) {
             log.warning("[EasyBind]Error loading configurations.");

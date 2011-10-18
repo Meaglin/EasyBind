@@ -19,10 +19,20 @@ public class EasyBindPlayerListener extends PlayerListener {
     }
 
     public void onPlayerInteract(org.bukkit.event.player.PlayerInteractEvent event) {
+        
+        switch(event.getAction()) {
+            case LEFT_CLICK_AIR:
+            case RIGHT_CLICK_AIR:
+                event.setCancelled(false);
+                break;
+        }
+        
         if (event.isCancelled())
             return;
+        
         if (event.getItem() == null)
             return;
+        
         Player player = event.getPlayer();
         BindList list = plugin.getBinds(player);
 
@@ -61,7 +71,7 @@ public class EasyBindPlayerListener extends PlayerListener {
 
         if (bind != null) {
             long delay = list.getLastUse() + EasyBindConfig.USE_DELAY - System.currentTimeMillis();
-            if (delay > 0 && !plugin.getPermissions().canUse(player, "easybind.delayoverride")) {
+            if (delay > 0 && !plugin.getPermissions().canUse(player, "easybind.override.delay")) {
                 if (delay > 1000) {
                     int seconds = (int) Math.ceil(delay / 1000);
                     player.sendMessage(ChatColor.RED + "Please wait " + seconds + " second" + (seconds != 1 ? "s" : "") + " before using a bind again.");
@@ -85,7 +95,7 @@ public class EasyBindPlayerListener extends PlayerListener {
         plugin.registerPlayer(event.getPlayer());
     }
 
-    public void onPlayerQuit(org.bukkit.event.player.PlayerEvent event) {
+    public void onPlayerQuit(org.bukkit.event.player.PlayerQuitEvent event) {
         plugin.forgetPlayer(event.getPlayer());
     }
 }

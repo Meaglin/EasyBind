@@ -22,7 +22,7 @@ public class BindKey {
     }
 
     public BindKey(Bind bind) {
-        this(bind.getKey(), bind.getItemid(), bind.getItemdata());
+        this(bind.getKeybind(), bind.getItemid(), bind.getItemdata());
     }
 
     public Key getKey() {

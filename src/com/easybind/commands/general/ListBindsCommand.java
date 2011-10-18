@@ -51,17 +51,17 @@ public class ListBindsCommand extends EasyBindCommand {
     
     private void sendList(Player player, Bind[] binds, int start) {
         if(binds.length < start) {
-            player.sendMessage(ChatColor.DARK_BLUE + "Binds " + start + "/" + binds.length + ":");
-            player.sendMessage(ChatColor.BLUE + "None.");
+            player.sendMessage(ChatColor.DARK_GREEN + "Binds " + start + "/" + binds.length + ":");
+            player.sendMessage(ChatColor.GREEN + "None.");
             return;
         }
         int end = start + 7;
         if(end > binds.length) end = binds.length;
         Bind[] displayList = Arrays.copyOfRange(binds, start, end);
-        player.sendMessage(ChatColor.DARK_BLUE + "Binds " + start + "/" + binds.length + ":");
+        player.sendMessage(ChatColor.DARK_GREEN + "Binds " + start + "/" + binds.length + ":");
         for(Bind b : displayList) {
             if(b != null)
-                player.sendMessage(ChatColor.BLUE + b.toString());
+                player.sendMessage(b.toString());
         }
     }
 

@@ -67,7 +67,7 @@ public class BindList {
     }
 
     private int getIndex(Bind bind) {
-        return getIndex(bind.getKey(), bind.getItemid(), bind.getItemdata());
+        return getIndex(bind.getKeybind(), bind.getItemid(), bind.getItemdata());
     }
 
     /*

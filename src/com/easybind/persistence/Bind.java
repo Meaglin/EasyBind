@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -28,7 +29,7 @@ public class Bind {
     private String command;
 
     @Enumerated(value = EnumType.STRING)
-    private Key    key;
+    private Key    keybind;
 
     private int    itemid;
     private int    itemdata;
@@ -39,8 +40,8 @@ public class Bind {
 
     public Bind(String name, Key key, String command, ItemStack itemInHand) {
         setPlayername(name);
-        setKey(key);
         setCommand(command);
+        setKeybind(key);
         setItemid(itemInHand.getTypeId());
         /*
          * Bukkit has no proper way to do this :/.
@@ -83,14 +84,6 @@ public class Bind {
         this.command = command;
     }
 
-    public Key getKey() {
-        return key;
-    }
-
-    public void setKey(Key key) {
-        this.key = key;
-    }
-
     public int getItemid() {
         return itemid;
     }
@@ -107,15 +100,20 @@ public class Bind {
         this.itemdata = itemdata;
     }
     
+    public Key getKeybind() {
+        return keybind;
+    }
+
+    public void setKeybind(Key keybind) {
+        this.keybind = keybind;
+    }
+
     public String toString() {
         Material mat = Material.getMaterial(getItemid());
-        String rt = "[" + getKey().name().toLowerCase().replace("_", " ") + "]";
-        rt += mat.name();
-        rt += "(";
-        rt += getItemdata();
-        rt += ")";
-        rt += ":";
-        rt += getCommand();
+        String rt = ChatColor.BLUE + "[" + getKeybind().name().toLowerCase().replace("_", " ") + "]";
+        rt += ChatColor.AQUA + mat.name().toLowerCase().replace("_", " ");
+        rt += "(" + getItemdata() + ")" + ":";
+        rt += ChatColor.GOLD + getCommand();
         return rt;
     }
 

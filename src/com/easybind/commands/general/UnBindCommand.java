@@ -12,7 +12,7 @@ import com.easybind.persistence.Bind;
 public class UnBindCommand extends EasyBindCommand {
 
     public UnBindCommand(EasyBind plugin) {
-        super("unbound", plugin);
+        super("unbind", plugin);
     }
 
     @Override
@@ -36,6 +36,7 @@ public class UnBindCommand extends EasyBindCommand {
         }
         getPlugin().getDatabase().delete(bind);
         list.removeBind(bind);
+        player.sendMessage(ChatColor.GREEN + "Unbind succesfull.");
         return true;
     }
 

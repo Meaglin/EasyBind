@@ -1,13 +1,13 @@
 name: EasyBind
 main: com.easybind.EasyBind
-version: 1.0
+version: 1.1
 author: Meaglin
 website: https://github.com/Meaglin/EasyBind
 description: The plugin to easily make serverside binds.
 database: true
 commands:
     bind:
-    	aliases: [ b , "b+" ]
+        aliases: [ b , "b+" ]
         description: binds a [command] to the equiped tool.
         usage: /<command> [command]
     unbind:

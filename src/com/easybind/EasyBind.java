@@ -30,7 +30,7 @@ import com.easybind.util.FileUtil;
 
 public class EasyBind extends JavaPlugin {
 
-    public static final int              Rev            = 1;
+    public static final int              Rev            = 3;
     protected static final Logger        log            = Logger.getLogger("Minecraft");
     private final EasyBindPlayerListener playerListener = new EasyBindPlayerListener(this);
     private final EasyBindCommandMap     commandMap     = new EasyBindCommandMap(this);
@@ -39,9 +39,9 @@ public class EasyBind extends JavaPlugin {
     private Map<Integer, BindList>       bindMap        = new HashMap<Integer, BindList>();
 
     private void registerEvents() {
-        registerEvent(Event.Type.PLAYER_INTERACT, playerListener, Priority.High);
-        registerEvent(Event.Type.PLAYER_LOGIN, playerListener, Priority.High);
-        registerEvent(Event.Type.PLAYER_QUIT, playerListener, Priority.High);
+        registerEvent(Event.Type.PLAYER_INTERACT, playerListener, Priority.Low);
+        registerEvent(Event.Type.PLAYER_LOGIN, playerListener, Priority.Monitor);
+        registerEvent(Event.Type.PLAYER_QUIT, playerListener, Priority.Monitor);
     }
 
     /**
@@ -93,6 +93,8 @@ public class EasyBind extends JavaPlugin {
         setupDatabase();
         EasyBindConfig.load(configFile);
         registerEvents();
+        bindMap.clear();
+        for(Player player : getServer().getOnlinePlayers()) registerPlayer(player);
         log.info("[EasyBind]finished Loading.");
 
     }
