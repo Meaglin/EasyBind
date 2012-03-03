@@ -43,9 +43,10 @@ public class Bind {
         setCommand(command);
         setKeybind(key);
         setItemid(itemInHand.getTypeId());
+        setItemdata(itemInHand.getDurability());
         /*
          * Bukkit has no proper way to do this :/.
-         */
+         
         switch (itemInHand.getTypeId()) {
             case 6: // Sapplings
             case 17: // Logs
@@ -54,10 +55,10 @@ public class Bind {
             case 44: // HalfSteps
             case 263: // Coal
             case 351: // Dye
-                setItemdata(itemInHand.getDurability());
             default:
                 setItemdata(0);
         }
+        */
     }
 
     public int getId() {

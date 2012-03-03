@@ -49,21 +49,7 @@ public class BindList {
     }
 
     private int getIndex(Key key, ItemStack item) {
-        /*
-         * Bukkit has no proper way to do this :/.
-         */
-        switch (item.getTypeId()) {
-            case 6: // Sapplings
-            case 17: // Logs
-            case 35: // Wool
-            case 43: // DoubleSteps
-            case 44: // HalfSteps
-            case 263: // Coal
-            case 351: // Dye
-                return getIndex(key, item.getTypeId(), item.getDurability());
-            default:
-                return getIndex(key, item.getTypeId(), 0);
-        }
+        return getIndex(key, item.getTypeId(), item.getDurability());
     }
 
     private int getIndex(Bind bind) {
@@ -76,7 +62,7 @@ public class BindList {
      */
     private int getIndex(Key key, int itemid, int itemdata) {
         int index = itemid;
-        index += (itemdata << 16);
+        index += ((itemdata & 0xF) << 16);
         index += (key.ordinal() << 24);
         return index;
     }

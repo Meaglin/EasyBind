@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.logging.Logger;
 
 import com.easybind.EasyBind;
-import com.easybind.commands.general.*;
 
 public class EasyBindCommandMap {
     private HashMap<String, EasyBindCommand> commands = new HashMap<String, EasyBindCommand>(); ;

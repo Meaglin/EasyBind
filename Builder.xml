@@ -10,9 +10,7 @@
 
 	<path id="classpath">
 		<fileset dir="libs">
-			<include name="craftbukkit-0.0.1-SNAPSHOT.jar" />
-			<include name="Permissions.jar" />
-			<include name="trove-2.1.0.jar" />
+			<include name="*.jar" />
 		</fileset>
 	</path>
 	
@@ -34,7 +32,7 @@
 	</target>
 
 	<target name="jar" depends="compile" description="Create the jar file">
-		<jar destfile="${build}/EasyBind.jar">
+		<jar destfile="../EasyBind.jar">
 			<fileset dir="${build.classes}" />
 			<zipfileset dir="${src}/com/easybind/config/" prefix="com/easybind/config/" >
 				<include name="*.properties" />
